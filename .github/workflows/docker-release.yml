@@ -2,8 +2,8 @@ name: Release Docker
 
 on:
   release:
-    types: created
   workflow_dispatch:
+
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
     - name: Docker login
       uses: docker/login-action@v1
       with:
-        username: hfarah
+        username: sherryyc
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
     - name: Docker build and push
@@ -23,6 +23,6 @@ jobs:
       with:
         context: ${{ env.GITHUB_WORKSPACE }}
         file: ${{ env.GITHUB_WORKSPACE }}/Dockerfile
-        tags: hfarah/csi5112lec5:latest
+        tags: sherryyc/todo:latest
         push: true
     
